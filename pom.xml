@@ -49,7 +49,7 @@
 	<distributionManagement>
     	<repository>
       		<id>github</id>
-      		<name>GitHub mayankshar21 Apache Maven Packages</name>
+      		<name>GitHub Packages</name>
       		<url>https://maven.pkg.github.com/mayankshar21/spring-boot-hello-world</url>
     	</repository>
   	</distributionManagement>
