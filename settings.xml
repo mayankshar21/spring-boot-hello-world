@@ -12,10 +12,6 @@
       <id>github</id>
       <repositories>
         <repository>
-          <id>central</id>
-          <url>https://repo1.maven.org/maven2</url>
-        </repository>
-        <repository>
           <id>github</id>
           <url>https://maven.pkg.github.com/mayankshar21/*</url>
           <snapshots>
@@ -34,3 +30,11 @@
     </server>
   </servers>
 </settings>
+
+<distributionManagement>
+   <repository>
+     <id>github</id>
+     <name>GitHub mayankshar21 Apache Maven Packages</name>
+     <url>https://maven.pkg.github.com/mayankshar21/spring-boot-hello-world</url>
+   </repository>
+</distributionManagement>
