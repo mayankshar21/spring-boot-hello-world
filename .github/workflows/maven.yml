@@ -18,6 +18,23 @@ jobs:
       with:
         java-version: '11'
         distribution: 'adopt'
+    
+    - name: Cache Maven packages
+      uses: actions/cache@v2
+      with:
+        path: ~/.m2
+        key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+        restore-keys: ${{ runner.os }}-m2
+    
     - name: Build with Maven
-      run: mvn -B package --file pom.xml
+      run: mvn --batch-mode --update-snapshots verify
+    - run: mkdir staging && cp target/*.jar staging
+    - uses: actions/upload-artifact@v2
+      with:
+        name: Package
+        path: staging
 
+    - name: Publish to GitHub Packages Apache Maven
+      run: mvn deploy -s $GITHUB_WORKSPACE/settings.xml
+      env:
+        GITHUB_TOKEN: ${{ github.token }}
