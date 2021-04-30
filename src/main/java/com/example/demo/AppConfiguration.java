@@ -20,4 +20,9 @@ public class AppConfiguration {
 	public String test() {
 		return "Test Successful!";
 	}
+	
+	@RequestMapping("/anothertest")
+	public String anotherTest() {
+		return "Test Worked again!";
+	}
 }
